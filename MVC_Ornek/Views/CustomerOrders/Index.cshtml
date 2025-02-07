@@ -1,0 +1,31 @@
+﻿@model MVC_Ornek.Models.CustomerOrderViewModel
+
+@{
+    ViewData["Title"] = "Müşteri Siparişleri";
+}
+
+<h2>@Model.Customer.FirstName @Model.Customer.LastName</h2>
+<p>Email: @Model.Customer.Email</p>
+
+<h3>Siparişler:</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sipariş ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Miktar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.ProductName</td>
+                <td>@order.Price</td>
+                <td>@order.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
